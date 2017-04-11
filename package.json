@@ -1,0 +1,19 @@
+{
+  "name": "react-native-nightfarmer-router",
+  "version": "1.0.0",
+  "description": "A Router Library for React Native Apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NightFarmer/react-native-nightfarmer-router.git"
+  },
+  "author": "NightFarmer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NightFarmer/react-native-nightfarmer-router/issues"
+  },
+  "homepage": "https://github.com/NightFarmer/react-native-nightfarmer-router#readme"
+}
