@@ -16,12 +16,14 @@ class ModuleRoot extends Component {
         viewList: []
     };
 
+    sequence = 0;
+
     render() {
         return (
             <View style={{position:"absolute",left:0,right:0,top:0,bottom:0}}>
-                {this.state.viewList.map((it, index) =>
-                    <View style={{position:"absolute",left:0,right:0,top:0,bottom:0}} key={index}>
-                        {it}
+                {this.state.viewList.map((it) =>
+                    <View style={{position:"absolute",left:0,right:0,top:0,bottom:0}} key={it.id}>
+                        {it.component}
                     </View>
                 )}
             </View>
@@ -29,16 +31,24 @@ class ModuleRoot extends Component {
     }
 
     insertModule = (moduleView) => {
+        let moduleBean = new ModuleBean();
         moduleView.props.dismissCallback(() => {
-            let index = this.state.viewList.indexOf(moduleView);
+            let index = this.state.viewList.indexOf(moduleBean);
             if (index > -1) {
                 this.state.viewList.splice(index, 1);
                 this.setState({})
             }
         });
-        this.state.viewList.push(moduleView);
+        moduleBean.id = this.sequence++;
+        moduleBean.component = moduleView;
+        this.state.viewList.push(moduleBean);
         this.setState({})
     }
+}
+
+class ModuleBean {
+    id = 0;
+    component = null;
 }
 
 export default ModuleRoot
