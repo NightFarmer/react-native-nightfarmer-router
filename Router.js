@@ -16,17 +16,19 @@ import {
 class Router extends Component {
 
     render() {
-        return <Navigator style={{flex:1,alignSelf:"stretch"}}
+        return <Navigator style={{flex: 1, alignSelf: "stretch"}}
                           ref="navigator"
                           initialRoute={{
-                            component:this.props.scenes.index.props.component
+                              component: this.props.scenes.index.props.component
                           }}
                           renderScene={(route, navigator) => {
-                            let Comp = route.component;
-                            return <WrapperComponent onAndroidBack={this.onAndroidBack}>
-                                <Comp {...route.params}/>
-                             </WrapperComponent>
-                        }}
+                              let Comp = route.component;
+                              return <WrapperComponent onAndroidBack={this.onAndroidBack}
+                                                       ref={(it) => route.container = it}
+                              >
+                                  <Comp {...route.params} ref={(it) => route.ref = it}/>
+                              </WrapperComponent>
+                          }}
 
         />
     }
@@ -49,16 +51,31 @@ class Router extends Component {
         };
         this.props.scenes.pop = () => {
             this.refs.navigator.pop();
+        };
+        this.props.scenes.hehe = () => {
+            let routes = this.refs.navigator.getCurrentRoutes();
+            console.info(routes[routes.length - 1].ref.hehe())
+        };
+        this.props.scenes.insertModule = (moduleView) => {
+            let routes = this.refs.navigator.getCurrentRoutes();
+            routes[routes.length - 1].container.insertModule(moduleView)
         }
     }
 }
 
+import ModuleRoot from './module/ModuleRoot'
+
 class WrapperComponent extends Component {
+
+    insertModule = (moduleView) => {
+        this.refs.moduleRoot.insertModule(moduleView);
+    };
 
     render() {
         return (
-            <View style={{flex:1,alignSelf:"stretch"}}>
+            <View style={{flex: 1, alignSelf: "stretch"}}>
                 {this.props.children}
+                <ModuleRoot ref="moduleRoot"/>
             </View>
         )
     }

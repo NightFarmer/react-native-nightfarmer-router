@@ -28,6 +28,10 @@ class Actions {
 
     pop = () => {
         this.sceneSet.pop()
+    };
+
+    insertModule = (moduleView) => {
+        this.sceneSet.insertModule(moduleView)
     }
 }
 
