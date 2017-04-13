@@ -73,7 +73,7 @@ class WrapperComponent extends Component {
 
     render() {
         return (
-            <View style={{flex: 1, alignSelf: "stretch"}}>
+            <View style={{flex: 1, alignSelf: "stretch", backgroundColor: "#FFF"}}>
                 {this.props.children}
                 <ModuleRoot ref="moduleRoot"/>
             </View>
