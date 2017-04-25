@@ -13,13 +13,24 @@ import {
 } from 'react-native';
 
 
+const NoBackSwipe = {
+    ...Navigator.SceneConfigs.HorizontalSwipeJump,
+    gestures: {
+        pop: {}
+    }
+};
+
 class Router extends Component {
 
     render() {
         return <Navigator style={{flex: 1, alignSelf: "stretch"}}
                           ref="navigator"
                           initialRoute={{
-                              component: this.props.scenes.index.props.component
+                              component: this.props.scenes.index.props.component,
+                              scene: this.props.scenes.index,
+                          }}
+                          configureScene={(route, routeStack) => {
+                              return NoBackSwipe
                           }}
                           renderScene={(route, navigator) => {
                               let Comp = route.component;
@@ -36,7 +47,10 @@ class Router extends Component {
     onAndroidBack = () => {
         let routes = this.refs.navigator.getCurrentRoutes();
         if (routes && routes.length > 1) {
-            this.refs.navigator.pop();
+            let topRoute = routes[routes.length - 1];
+            if (!topRoute.scene.props.handleBack) {
+                this.refs.navigator.pop();
+            }
             return true
         }
         return false
@@ -46,6 +60,7 @@ class Router extends Component {
         this.props.scenes.act = (scene, params) => {
             this.refs.navigator.push({
                 component: scene.props.component,
+                scene: scene,
                 params: params
             })
         };
