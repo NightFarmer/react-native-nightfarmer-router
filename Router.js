@@ -50,8 +50,8 @@ class Router extends Component {
             let topRoute = routes[routes.length - 1];
             if (!topRoute.scene.props.handleBack) {
                 this.refs.navigator.pop();
+                return true
             }
-            return true
         }
         return false
     };
