@@ -34,11 +34,18 @@ class Router extends Component {
                           }}
                           renderScene={(route, navigator) => {
                               let Comp = route.component;
+                              route.focusListeners = [];
                               return <WrapperComponent onAndroidBack={this.onAndroidBack}
                                                        ref={(it) => route.container = it}
                               >
-                                  <Comp {...route.params} ref={(it) => route.ref = it}/>
+                                  <Comp focusListeners={route.focusListeners} {...route.params}
+                                        ref={(it) => route.ref = it}/>
                               </WrapperComponent>
+                          }}
+                          onDidFocus={(route) => {
+                              for (let i = 0; i < route.focusListeners; i++) {
+                                  route.focusListeners[i]();
+                              }
                           }}
 
         />
