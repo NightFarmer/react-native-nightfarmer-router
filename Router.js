@@ -43,7 +43,7 @@ class Router extends Component {
                               </WrapperComponent>
                           }}
                           onDidFocus={(route) => {
-                              for (let i = 0; i < route.focusListeners; i++) {
+                              for (let i = 0; i < route.focusListeners.length; i++) {
                                   route.focusListeners[i]();
                               }
                           }}
