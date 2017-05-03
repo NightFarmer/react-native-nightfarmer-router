@@ -57,7 +57,7 @@ class Router extends Component {
                 this.refs.navigator.pop();
                 return true
             }
-            return topRoute.ref.handleBack && topRoute.ref.handleBack()
+            return topRoute.ref.handleBack()
         }
         return false
     };
