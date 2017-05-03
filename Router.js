@@ -53,10 +53,11 @@ class Router extends Component {
         let routes = this.refs.navigator.getCurrentRoutes();
         if (routes && routes.length > 1) {
             let topRoute = routes[routes.length - 1];
-            if (!topRoute.scene.props.handleBack) {
-                this.refs.navigator.popToRoute(routes[routes.length - 2]);
+            if (!topRoute.ref.handleBack) {
+                this.refs.navigator.pop();
                 return true
             }
+            return topRoute.ref.handleBack && topRoute.ref.handleBack()
         }
         return false
     };
