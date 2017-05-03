@@ -54,7 +54,8 @@ class Router extends Component {
         if (routes && routes.length > 1) {
             let topRoute = routes[routes.length - 1];
             if (!topRoute.ref.handleBack) {
-                this.refs.navigator.pop();
+                // this.refs.navigator.pop();
+                this.refs.navigator.popToRoute(routes[routes.length - 2]);
                 return true
             }
             return topRoute.ref.handleBack()
