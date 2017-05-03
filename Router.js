@@ -38,14 +38,12 @@ class Router extends Component {
                               return <WrapperComponent onAndroidBack={this.onAndroidBack}
                                                        ref={(it) => route.container = it}
                               >
-                                  <Comp focusListeners={route.focusListeners} {...route.params}
+                                  <Comp {...route.params}
                                         ref={(it) => route.ref = it}/>
                               </WrapperComponent>
                           }}
                           onDidFocus={(route) => {
-                              for (let i = 0; i < route.focusListeners.length; i++) {
-                                  route.focusListeners[i]();
-                              }
+                              route.ref.onDidFocus && route.ref.onDidFocus()
                           }}
 
         />
