@@ -1,7 +1,7 @@
 /**
  * Created by zhangfan on 17-4-11.
  */
-import React, {Component} from 'react';
+import React, {Component, PureComponent} from 'react';
 import {
     AppRegistry,
     StyleSheet,
@@ -10,7 +10,7 @@ import {
     Navigator
 } from 'react-native';
 
-class ModuleRoot extends Component {
+class ModuleRoot extends PureComponent {
 
     state = {
         viewList: []
@@ -20,15 +20,17 @@ class ModuleRoot extends Component {
 
     render() {
         return (
-            <View style={{position:"absolute",left:0,right:0,top:0,bottom:0}}>
-                {this.state.viewList.map((it) =>
-                    <View style={{position:"absolute",left:0,right:0,top:0,bottom:0}} key={it.id}>
-                        {it.component}
-                    </View>
-                )}
+            <View style={{position: "absolute", left: 0, right: 0, top: 0, bottom: 0}}>
+                {this.state.viewList.map(this.renderItem)}
             </View>
         )
     }
+
+    renderItem = (it) =>
+        <View style={{position: "absolute", left: 0, right: 0, top: 0, bottom: 0}} key={it.id}>
+            {it.component}
+        </View>;
+
 
     insertModule = (moduleView) => {
         let moduleBean = new ModuleBean();

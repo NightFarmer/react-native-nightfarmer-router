@@ -1,7 +1,7 @@
 /**
  * Created by zhangfan on 17-4-11.
  */
-import React, {Component} from 'react';
+import React, {Component,PureComponent} from 'react';
 import {
     AppRegistry,
     StyleSheet,
@@ -87,7 +87,7 @@ class Router extends Component {
 
 import ModuleRoot from './module/ModuleRoot'
 
-class WrapperComponent extends Component {
+class WrapperComponent extends PureComponent {
 
     insertModule = (moduleView) => {
         this.refs.moduleRoot.insertModule(moduleView);
