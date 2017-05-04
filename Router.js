@@ -14,7 +14,7 @@ import {
 
 
 const NoBackSwipe = {
-    ...Navigator.SceneConfigs.HorizontalSwipeJump,
+    ...Navigator.SceneConfigs.PushFromRight,
     gestures: {
         pop: {}
     }
