@@ -48,10 +48,10 @@ class Router extends Component {
         this.scenes = FActions.create(
             <FScene key="root">
                 {sceneList.map((scene) =>
-                    <FScene key={scene.key} component={class extends Component{
-                        render(){
-                            let Comp= scene.props.component
-                            return <WrapperComponent>
+                    <FScene key={scene.key} component={class extends Component {
+                        render() {
+                            let Comp = scene.props.component
+                            return <WrapperComponent ref={(it) => scene.container = it}>
                                 <Comp {...this.props}/>
                             </WrapperComponent>
                         }
