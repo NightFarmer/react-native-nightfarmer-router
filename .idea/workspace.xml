@@ -48,10 +48,10 @@
       <file leaf-file-name="Router.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="549">
-              <caret line="65" column="40" lean-forward="false" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
+            <state relative-caret-position="243">
+              <caret line="23" column="72" lean-forward="false" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
               <folding>
-                <element signature="e#363#460#0" expanded="true" />
+                <element signature="e#43#97#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,6 +70,7 @@
     <findStrings>
       <find>toast</find>
       <find>navigate</find>
+      <find>FScene</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -231,7 +232,7 @@
       <workItem from="1493879927009" duration="706000" />
       <workItem from="1493881364034" duration="1378000" />
       <workItem from="1493949818658" duration="33000" />
-      <workItem from="1496391663967" duration="1790000" />
+      <workItem from="1496391663967" duration="1883000" />
     </task>
     <task id="LOCAL-00001" summary="修复moduleroot在多层级情况识别错误的问题">
       <created>1491986333728</created>
@@ -328,7 +329,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30928000" />
+    <option name="totallyTimeSpent" value="31021000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-28" width="1920" height="1108" extended-state="6" />
@@ -790,10 +791,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="65" column="40" lean-forward="false" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
+        <state relative-caret-position="243">
+          <caret line="23" column="72" lean-forward="false" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
           <folding>
-            <element signature="e#363#460#0" expanded="true" />
+            <element signature="e#43#97#0" expanded="true" />
           </folding>
         </state>
       </provider>

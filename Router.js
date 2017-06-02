@@ -21,7 +21,7 @@ const NoBackSwipe = {
     }
 };
 
-import {Router as FRouter, Actions as FActions, Scene as FScene} from 'react-native-router-flux';
+import {Router as FRouter, Actions as FActions, Scene as FScene, Reducer} from 'react-native-router-flux';
 
 import NavigationStateHandler from 'react-native-router-flux-hooks'
 const navigationStateHandler = new NavigationStateHandler()
