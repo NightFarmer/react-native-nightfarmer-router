@@ -26,6 +26,14 @@ import {Router as FRouter, Actions as FActions, Scene as FScene} from 'react-nat
 import NavigationStateHandler from 'react-native-router-flux-hooks'
 const navigationStateHandler = new NavigationStateHandler()
 
+const reducerCreate = params => {
+    const defaultReducer = new Reducer(params);
+    return (state, action) => {
+        console.log('ACTION:', action);
+        return defaultReducer(state, action);
+    };
+}
+
 class Router extends Component {
 
     constructor(props) {
@@ -55,7 +63,7 @@ class Router extends Component {
 
     render() {
         return <FRouter
-            createReducer={navigationStateHandler.getReducer.bind(navigationStateHandler)}
+            createReducer={reducerCreate}
             navigationStateHandler={navigationStateHandler}
             scenes={this.scenes}/>
     }
