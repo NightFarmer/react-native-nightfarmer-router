@@ -63,7 +63,7 @@ class Router extends Component {
 
     render() {
         return <FRouter
-            createReducer={reducerCreate}
+            createReducer={navigationStateHandler.getReducer.bind(navigationStateHandler)}
             navigationStateHandler={navigationStateHandler}
             scenes={this.scenes}/>
     }
